@@ -57,7 +57,7 @@
         padding: 2em;
         text-align: center;
         background-color: rgba(120, 120, 120, 0.7);
-        object-position: center;
+        align-content: center;
     }
 
 .title h1 {
