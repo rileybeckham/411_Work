@@ -50,14 +50,13 @@
     .hero .title {
         font-size: 22pt;
         color: #fff;
-        float: right;
+        float: none;
         margin-top: 170px;
         margin-left: 1em;
         margin-right: 1em;
         padding: 2em;
         text-align: center;
         background-color: rgba(120, 120, 120, 0.7);
-        align-content: center;
     }
 
 .title h1 {
