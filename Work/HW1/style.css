@@ -18,7 +18,7 @@
 }
 
 .description {
-    /*margin: 25vh auto;*/
+    margin: 25vh auto;
     padding: 1em;
     text-align: center;
     width: 75%;
@@ -74,13 +74,13 @@
 
 .hero .nav {
     font-family: 'Josefin Sans', sans-serif;
-    font-style: italic;
     font-weight: 300;
     color: #fff;
     margin-top: 2em;
     font-size: 1.5em;
     display: flex;
     flex-direction: row;
+    vertical-align: central;
 }
 
     .hero .nav a {
