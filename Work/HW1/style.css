@@ -41,7 +41,7 @@
     height: 100vh;
     min-height: 740px;
     background-image: url("imgs/TClaw_Sunset.jpg");
-    background-position: center;
+    background-position: left;
     background-repeat: no-repeat;
     background-size: cover;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .8);
@@ -57,6 +57,7 @@
         padding: 2em;
         text-align: center;
         background-color: rgba(120, 120, 120, 0.7);
+        object-position: center;
     }
 
 .title h1 {
