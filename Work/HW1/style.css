@@ -57,6 +57,7 @@
         padding: 2em;
         text-align: center;
         background-color: rgba(120, 120, 120, 0.7);
+        position: center;
     }
 
 .title h1 {
@@ -97,9 +98,6 @@
     text-align: center;
     border: 1px solid #d9d9d9;
     border-width: 1px 0;
-    position: absolute;
-    display: flex;
-    justify-content: center;
 }
 
     .hero .nav-item:hover {
