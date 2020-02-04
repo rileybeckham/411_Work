@@ -1,0 +1,65 @@
+﻿<html>
+<head>
+    <title>Food Ideas</title>
+    <link rel="stylesheet" href="Food.css" type="text/css" />
+    <script>
+        function question1() {
+            var name = window.prompt("What is your name?");
+            var q1 = window.prompt(document.getElementById("Start").innerHTML = "Hi " + name + ", do you prefer breakfeast or dinner?");
+            var q2 = q1.toLowerCase();
+            console.log(q1);
+            console.log(q2);
+            if (q2 === "dinner") {
+                dinner()
+            }
+            else if (q2 === "breakfeast") {
+                breakfeast()
+            }
+            else
+                document.getElementById("Start").innerHTML = "Error: please retype your answer";
+        }
+        function breakfeast() {
+            var q2 = window.prompt(document.getElementById("Start").innerHTML = "Pancake or Waffle?");
+            var q3 = q2.toLowerCase();
+            if (q3 === 'pancake') {
+                document.body.background = "pancake.jpg"
+                document.getElementById("Start").innerHTML = q3 + " sounds delicous";
+            }
+            else if (q3 === 'waffle') {
+                document.body.background = "waffle.jpg"
+                document.getElementById("Start").innerHTML = q3 + " sounds delicous";
+            }
+            else {
+                document.getElementById("Start").innerHTML = "Error: please retype your answer";
+            }
+            
+        }
+        function dinner() {
+            var q2 = window.prompt(document.getElementById("Start").innerHTML = "Pizza or Sandwhich?");
+            var q3 = q2.toLowerCase();
+            if (q3 === 'pizza') {
+                document.body.background = "pizza.jpg"
+                document.getElementById("Start").innerHTML =  q3 + " sounds delicous";
+            }
+            else if (q3 === 'sandwhich') {
+                document.body.background = "sandwhich.jpg"
+                document.getElementById("Start").innerHTML = "A " + q3 + " sounds delicous";
+            }
+            else {
+                document.getElementById("Start").innerHTML = "Error: please retype your answer";
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <h1>It is your job to help decide what to eat!</h1>
+    <button onclick="question1()">Start</button>
+    <div id="Start"></div>
+    <script>
+        
+    </script>
+    <br />
+</body>
+
+</html>

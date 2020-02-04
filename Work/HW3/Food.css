@@ -1,0 +1,17 @@
+﻿body {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+header{
+    font: large;
+}
+div {
+    color: chartreuse;
+}
+h1 {
+    color: chartreuse;
+    font:medium;
+}
