@@ -1,0 +1,261 @@
+﻿<html>
+<style>
+    
+img {
+    max-width: 350px;
+    height: 350px;
+}
+header{
+    font: large;
+}
+div {
+    color: chartreuse;
+}
+h1 {
+    color: chartreuse;
+    font:medium;
+}
+</style>
+    <script>
+        function getChoice1()
+        {
+            var myChoice = document.getElementById("choice").value;
+            var myQuestion = document.getElementById("question");
+            //myChoice = myChoice.toLowerCase();
+            if (myChoice === "dinner") {
+                document.getElementById("Body").style.backgroundColor = "blue";
+                document.getElementById("choice").style.display = "none";
+                document.getElementById("btnSubmit").style.display = "none";
+
+                document.getElementById("choice2").style.display = "block";
+                document.getElementById("btnSubmit2").style.display = "block";
+
+
+                myQuestion.innerHTML = "Oh you chose dinner. What is your dinner favorite dinner food?(Sandwhich or Pizza)";
+            }
+            else if (myChoice === "breakfast") {
+                document.getElementById("Body").style.backgroundColor = "blue";
+                document.getElementById("choice").style.display = "none";
+                document.getElementById("btnSubmit").style.display = "none";
+
+                document.getElementById("choice2").style.display = "block";
+                document.getElementById("btnSubmit2").style.display = "block";
+
+
+                myQuestion.innerHTML = "Oh you chose breakfast. What is your favorite breakfast food?(Pancake or Waffle)";
+            }
+            else {
+                myQuestion.innerHTML = "Invalid answer";
+            }
+        }
+
+        function getChoice2()
+        {
+            var food = document.getElementById("choice2").value;
+            var myQuestion = document.getElementById("question");
+            if (food === "pancake") {
+                document.getElementById("MainImg").src = "pancake.jpg"
+
+                document.getElementById("choice2").style.display = "none";
+                document.getElementById("btnSubmit2").style.display = "none";
+
+                document.getElementById("choice3").style.display = "block";
+                document.getElementById("btnSubmit3").style.display = "block";
+
+                myQuestion.innerHTML = "I love Pancakes! Now time for dessert!(IceCream or MilkShake)";
+            }
+            else if (food === "waffle") {
+                document.getElementById("MainImg").src = "waffle.jpg"
+
+                document.getElementById("choice2").style.display = "none";
+                document.getElementById("btnSubmit2").style.display = "none";
+
+                document.getElementById("choice3").style.display = "block";
+                document.getElementById("btnSubmit3").style.display = "block";
+
+                myQuestion.innerHTML = "I love Waffles. But they dont love you, you are sick! Do you want to go to hospital or wait it out?(home or hospital)";
+            }
+            else if (food === "pizza") {
+                document.getElementById("MainImg").src = "pizza.jpg"
+
+                document.getElementById("choice2").style.display = "none";
+                document.getElementById("btnSubmit2").style.display = "none";
+
+                document.getElementById("choice3").style.display = "block";
+                document.getElementById("btnSubmit3").style.display = "block";
+
+                myQuestion.innerHTML = "I love pepperoni pizza! Now time for dessert!(icecream or milkshake)";
+            }
+            else if (food === "sandwhich") {
+                document.getElementById("MainImg").src = "sandWhich.jpg"
+
+                document.getElementById("choice2").style.display = "none";
+                document.getElementById("btnSubmit2").style.display = "none";
+
+                document.getElementById("choice3").style.display = "block";
+                document.getElementById("btnSubmit3").style.display = "block";
+
+                myQuestion.innerHTML = "I love a turkey sandwhich! But the mayo was bad, you are sick! Do you want to go to hospital or wait it out?(hospital or home)";
+            }
+            else {
+                myQuestion.innerHTML = "Invalid answer";
+            }
+        }
+
+        function getChoice3() {
+            var choice3 = document.getElementById("choice3").value;
+            var myQuestion = document.getElementById("question");
+            if (choice3 === "milkshake") {
+                document.getElementById("choice3").style.display = "none";
+                document.getElementById("btnSubmit3").style.display = "none";
+
+                document.getElementById("choice4").style.display = "block";
+                document.getElementById("btnSubmit4").style.display = "block";
+                myQuestion.innerHTML = "Yumm milkshake. Are you still hungry or do you want to get the check?(hungry or check)"
+            }
+            else if (choice3 === "icecream") {
+                document.getElementById("choice3").style.display = "none";
+                document.getElementById("btnSubmit3").style.display = "none";
+
+                document.getElementById("choice4").style.display = "block";
+                document.getElementById("btnSubmit4").style.display = "block";
+                myQuestion.innerHTML = "Yumm icecream. Are you still hungry or do you want to get the check?(hungry or check)"
+            }
+            else if (choice3 === "hospital") {
+                document.getElementById("choice3").style.display = "none";
+                document.getElementById("btnSubmit3").style.display = "none";
+
+                document.getElementById("choice4").style.display = "block";
+                document.getElementById("btnSubmit4").style.display = "block";
+                myQuestion.innerHTML = "The hospital tells you, you have salmonella.(Do you want to pay your medical expenses or sue the resturaunt?(pay or sue)  "
+            }
+            else if (choice3 === "home") {
+                document.getElementById("choice3").style.display = "none";
+                document.getElementById("btnSubmit3").style.display = "none";
+
+                
+                myQuestion.innerHTML = "You got salmonella and died. " 
+                document.getElementById("Body").style.backgroundColor = "black";
+                document.getElementById("MainImg").src = "gravestone.jpg"
+            }
+            else {
+                myQuestion.innerHTML = "Invalid answer";
+            }
+        }
+
+        function getChoice4() {
+            var choice4 = document.getElementById("choice4").value;
+            var myQuestion = document.getElementById("question");
+            if (choice4 === "hungry") {
+                document.getElementById("choice4").style.display = "none";
+                document.getElementById("btnSubmit4").style.display = "none";
+
+                document.getElementById("choice5").style.display = "block";
+                document.getElementById("btnSubmit5").style.display = "block";
+                myQuestion.innerHTML = "icecream or milkshake"
+            }
+            else if (choice4 === "check") {
+                document.getElementById("choice4").style.display = "none";
+                document.getElementById("btnSubmit4").style.display = "none";
+
+                document.getElementById("choice5").style.display = "block";
+                document.getElementById("btnSubmit5").style.display = "block";
+                myQuestion.innerHTML = "You are full, do you want to go to bed or watch netflix.(bed or netflix)"
+            }
+            else if (choice4 === "pay") {
+                document.getElementById("choice4").style.display = "none";
+                document.getElementById("btnSubmit4").style.display = "none";
+
+                
+                myQuestion.innerHTML = "You go broke and get crushed by debt."
+                document.getElementById("Body").style.backgroundColor = "black";
+                document.getElementById("MainImg").src = "gravestone.jpg"
+            }
+            else if (choice4 === "sue") {
+                document.getElementById("choice4").style.display = "none";
+                document.getElementById("btnSubmit4").style.display = "none";
+
+                
+                myQuestion.innerHTML = "You win Big you are rich!"
+                document.getElementById("MainImg").src = "money.jpg"
+                document.getElementById("Body").style.backgroundColor = "green";
+            }
+            else {
+                myQuestion.innerHTML = "Invalid answer";
+            }
+        }
+
+        function getChoice5() {
+            var choice5 = document.getElementById("choice5").value;
+            var myQuestion = document.getElementById("question");
+            if (choice5 === "icecream") {
+                console.log("teset");
+                myQuestion.innerHTML = "Yumm you are full after that icecream, would you like to restart(dinner or breakfast)?"
+                document.getElementById("choice5").style.display = "none";
+                document.getElementById("btnSubmit5").style.display = "none";
+                
+                document.getElementById("choice").style.display = "block";
+                document.getElementById("btnSubmit").style.display = "block";
+                document.getElementById("Body").style.backgroundColor = "black";
+            }
+            else if (choice5 === "milkshake") {
+                
+                document.getElementById("choice5").style.display = "none";
+                document.getElementById("btnSubmit5").style.display = "none";
+                
+                document.getElementById("choice").style.display = "block";
+                document.getElementById("btnSubmit").style.display = "block";
+                document.getElementById("Body").style.backgroundColor = "black";
+                myQuestion.innerHTML = "Yumm you are full after that milkshake, would you like to restart?(dinner or brakfeast)"
+            }
+            else if (choice5 === "bed") {
+                document.getElementById("choice5").style.display = "none";
+                document.getElementById("btnSubmit5").style.display = "none";
+                myQuestion.innerHTML = "You got a goodnight sleep, would you like to restart?(dinner or breakfast)"
+                document.getElementById("choice").style.display = "block";
+                document.getElementById("btnSubmit").style.display = "block";
+                document.getElementById("Body").style.backgroundColor = "black";
+            }
+            else if (choice5 === "netflix") {
+                document.getElementById("choice5").style.display = "none";
+                document.getElementById("btnSubmit5").style.display = "none";
+                myQuestion.innerHTML = "You didn't sleep very well after watching netflix to late, would you like to restart?(dinner or breakfast)"
+                document.getElementById("choice").style.display = "block";
+                document.getElementById("btnSubmit").style.display = "block";
+                document.getElementById("Body").style.backgroundColor = "red";
+            }
+            else {
+                myQuestion.innerHTM = "invalid answer."
+            }
+        }
+
+    </script>
+
+    <body id="Body">
+        <h1>Its time for Food!</h1>
+        <br />
+        <img src="dinner-table.jpg" id="MainImg">
+        <div id="question">
+            It is time to decide what to eat! Do you prefer Breakfast or dinner food?
+        </div>
+        <br />
+
+        <input type="text" size="30" id="choice" value="Please enter Breakfast or dinner">
+        <button id="btnSubmit" onclick="getChoice1();">Click to continue</button>
+
+        <input type="text" size="30" id="choice2" value="Enter favorite food." style="display:none">
+        <button id="btnSubmit2" onclick="getChoice2();" style="display:none">Click to continue</button>
+
+        <input type="text" size="30" id="choice3" value="Enter Choice here" style="display:none">
+        <button id="btnSubmit3" onclick="getChoice3();" style="display:none">Click to continue</button>
+
+        <input type="text" size="30" id="choice4" value="Enter Choice here" style="display:none">
+        <button id="btnSubmit4" onclick="getChoice4();" style="display:none">Click to continue</button>
+
+        <input type="text" size="30" id="choice5" value="Enter Choice here" style="display:none">
+        <button id="btnSubmit5" onclick="getChoice5();" style="display:none">Click to continue</button>
+
+
+    </body>
+
+</html>
