@@ -34,6 +34,4 @@ function createRandomImageArray() {
 //function that just changesthe image based on what number was pressed
 function flipImage(number) {
     document.getElementById(imageTags[number]).src = cards[number];
-
-
 }
