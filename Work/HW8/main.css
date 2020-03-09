@@ -1,0 +1,89 @@
+﻿#square {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    left: 0;
+    top: 75vh;
+}
+
+/*ref: https://idevie.com/default/make-shapes-with-css-how-to-create-different-shapes-in-css */
+#triangle_down {
+    width: 0;
+    height: 0;
+    border-top: 140px solid #20a3bf;
+    border-left: 70px solid transparent;
+    border-right: 70px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 75vh;
+}
+ 
+.stuff {
+    background: blue;
+}
+
+#third {
+    background: green;
+}
+
+.new {
+    background: red;
+}
+
+img {
+    height: 35vh;
+    width: 20vw;
+}
+
+#food {
+    width: 100px;
+    height: 100px;
+}
+/* https://www.allphptricks.com/demo/2018/oct/simple-jquery-image-slideshow/ */
+body {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: burlywood;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.container {
+    width: 1150px;
+    margin: 30px auto;
+}
+
+    .container .box {
+        width: 150px;
+    }
+
+#slideshow {
+    position: relative;
+    height: 160px;
+}
+
+    #slideshow div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 8;
+        visibility: hidden;
+    }
+
+        #slideshow div.active {
+            z-index: 10;
+            visibility: visible;
+        }
+
+        #slideshow div.last-active {
+            z-index: 9;
+            visibility: hidden;
+        }
