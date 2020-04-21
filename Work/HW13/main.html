@@ -1,0 +1,184 @@
+<html>
+    <body>
+        <script src="js/three.min.js"></script>
+        <script src="js/GLTFLoader.js"></script>
+        <script>var Controls = (function(Controls) {
+            "use strict";
+        
+            // Check for double inclusion
+            if (Controls.addMouseHandler)
+                return Controls;
+        
+            Controls.addMouseHandler = function (domObject, drag, zoomIn, zoomOut) {
+                var startDragX = null,
+                    startDragY = null;
+        
+                function mouseWheelHandler(e) {
+                    e = window.event || e;
+                    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+        
+                    if (delta < 0 && zoomOut) {
+                        zoomOut(delta);
+                    } else if (zoomIn) {
+                        zoomIn(delta);
+                    }
+        
+                    e.preventDefault();
+                }
+        
+                function mouseDownHandler(e) {
+                    startDragX = e.clientX;
+                    startDragY = e.clientY;
+        
+                    e.preventDefault();
+                }
+        
+                function mouseMoveHandler(e) {
+                    if (startDragX === null || startDragY === null)
+                        return;
+        
+                    if (drag)
+                        drag(e.clientX - startDragX, e.clientY - startDragY);
+        
+                    startDragX = e.clientX;
+                    startDragY = e.clientY;
+        
+                    e.preventDefault();
+                }
+        
+                function mouseUpHandler(e) {
+                    mouseMoveHandler.call(this, e);
+                    startDragX = null;
+                    startDragY = null;
+        
+                    e.preventDefault();
+                }
+        
+                domObject.addEventListener("mousewheel", mouseWheelHandler);
+                domObject.addEventListener("DOMMouseScroll", mouseWheelHandler);
+                domObject.addEventListener("mousedown", mouseDownHandler);
+                domObject.addEventListener("mousemove", mouseMoveHandler);
+                domObject.addEventListener("mouseup", mouseUpHandler);
+            };
+            return Controls;
+        }(Controls || {}));</script>
+
+
+
+
+        <script>
+           
+           var renderer = new THREE.WebGLRenderer({antialias: true});
+	renderer.setSize(500, 500);
+	document.body.appendChild(renderer.domElement);
+	var scene = new THREE.Scene();
+	var center = new THREE.Vector3();
+	var camera = new THREE.PerspectiveCamera(75, 1, 0.01, 300);
+
+	camera.up = new THREE.Vector3(0, 0, 1);
+	camera.position.x = 5;
+	camera.lookAt(center);
+
+	function drag(deltaX, deltaY) {
+		var radPerPixel = (Math.PI / 450),
+		    deltaPhi = radPerPixel * deltaX,
+		    deltaTheta = radPerPixel * deltaY,
+		    pos = camera.position.sub(center),
+		    radius = pos.length(),
+		    theta = Math.acos(pos.z / radius),
+		    phi = Math.atan2(pos.y, pos.x);
+
+		// Subtract deltaTheta and deltaPhi
+		theta = Math.min(Math.max(theta - deltaTheta, 0), Math.PI);
+		phi -= deltaPhi;
+
+		// Turn back into Cartesian coordinates
+		pos.x = radius * Math.sin(theta) * Math.cos(phi);
+		pos.y = radius * Math.sin(theta) * Math.sin(phi);
+		pos.z = radius * Math.cos(theta);
+
+		camera.position.add(center);
+		camera.lookAt(center);
+		redraw();
+	}
+
+	function zoomIn() {
+		camera.position.sub(center).multiplyScalar(0.9).add(center);
+		redraw();
+	}
+
+	function zoomOut() {
+		camera.position.sub(center).multiplyScalar(1.1).add(center);
+		redraw();
+	}
+
+	Controls.addMouseHandler(renderer.domElement, drag, zoomIn, zoomOut);
+
+	var color = new THREE.Color(0.2, 0.2, 0.2);
+	var ambient = new THREE.AmbientLight(color.getHex());
+	scene.add(ambient);
+
+	var geometry = new THREE.SphereGeometry(1, 32, 32);
+	var material = new THREE.MeshPhongMaterial({
+		color: new THREE.Color('grey')
+	});
+    var sphere = new THREE.Mesh(geometry, material);
+    //TODO  change position of sphere//add square or another sphere
+    //sphere.setSize(1,1,1);
+    scene.add(sphere);
+
+    
+    var geometry1 = new THREE.BoxGeometry();
+    var material = new THREE.MeshBasicMaterial({
+    color: 0x00ff00
+    });
+    var cube1 = new THREE.Mesh(geometry1, material);
+    cube1.position.x = 1;
+            cube1.position.y = 1;
+            cube1.position.z = 0;
+    scene.add(cube1);
+
+    var material4 = new THREE.MeshBasicMaterial({
+    color: 0x00ff00
+    });
+
+    var loader = new THREE.GLTFLoader();
+        // change to the name of your glb
+        
+        loader.load('torus.glb', function(gltf) {
+            
+            scene.add(gltf.scene);
+            gltf.scene.position.x = .1;
+            gltf.scene.position.y = 0;
+            gltf.scene.position.z = 0;
+        }, undefined, function(error) {
+
+            console.error(error);
+
+        });
+
+
+	var pointLight = new THREE.PointLight(0xFFFFFF);
+	pointLight.position.x = 5;
+	pointLight.position.y = 5;
+	scene.add(pointLight);
+
+	var axisHelper = new THREE.AxisHelper(5);
+	//scene.add(axisHelper);
+
+	function render() {
+		renderer.render(scene, camera);
+	}
+
+	var frameId = 0;
+	function redraw() {
+		cancelAnimationFrame(frameId);
+		frameId = requestAnimationFrame(render);
+	}
+	redraw();
+        </script>
+
+
+
+    </body>
+</html>
